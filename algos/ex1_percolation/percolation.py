@@ -2,6 +2,7 @@ import random
 
 import numpy as np
 
+from shared.timer import Timer
 from union_find import weighted_quick_union_uf as uf
 
 
@@ -96,7 +97,7 @@ class PercolationStats:
             c = random.randint(1, n)
             if not p.is_open(r, c):
                 p.open(r, c)
-                self.ok +=1
+                self.ok += 1
                 if p.percolates():
                     break
             else:
@@ -126,7 +127,14 @@ class PercolationStats:
 
 
 if __name__ == '__main__':
+    t = Timer()
+    t.start()
     p1 = PercolationStats(200, 100)
     p1.show()
+    t.stop()
+    t.show()
+    t.start()
     p2 = PercolationStats(2, 10000)
     p2.show()
+    t.stop()
+    t.show()

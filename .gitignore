@@ -159,12 +159,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 /.python-version
-/.idea/.gitignore
-/.idea/codeStyles/codeStyleConfig.xml
-/.idea/data_structures_and_algorithms.iml
-/out/production/src/Main.class
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/codeStyles/Project.xml
-/src/src.iml
-/.idea/vcs.xml
+/.idea/*
+/out/*
+*.iml
