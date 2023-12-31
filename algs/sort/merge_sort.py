@@ -6,6 +6,23 @@ def merge_sort(a):
     sort(a, aux, 0, len(a) - 1)
 
 
+# iterative (bottom-up) version
+def merge_sort_bu(a):
+    if a is None or len(a) == 0 or len(a) == 1:
+        return a
+    n = len(a)
+    aux = [0 for _ in range(n)]
+    length = 1
+    while length < n:
+        lo = 0
+        while lo < n - length:
+            mid = lo + length - 1
+            hi = min(lo + length + length - 1, n - 1)
+            merge(a, aux, lo, mid, hi)
+            lo += (length + length)
+        length *= 2
+
+
 def sort(a, aux, start, end):
     if start >= end:
         return
