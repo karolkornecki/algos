@@ -31,14 +31,14 @@ class MergeSortTestCase(unittest.TestCase):
 
     @parameterized.expand([(None, None), ([], []), ([1], [1])])
     def test_should_merge_sort_do_nothing(self, array_to_sort, expected_result):
-        # given
+        # when
         ms.merge_sort(array_to_sort)
         # then
         self.assertEqual(expected_result, array_to_sort)
 
     @parameterized.expand([(None, None), ([], []), ([1], [1])])
     def test_should_merge_sort_bu_do_nothing(self, array_to_sort, expected_result):
-        # given
+        # when
         ms.merge_sort_bu(array_to_sort)
         # then
         self.assertEqual(expected_result, array_to_sort)
