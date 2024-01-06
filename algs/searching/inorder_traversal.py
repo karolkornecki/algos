@@ -6,7 +6,7 @@ def inorder_traversal(tree: TreeNode, fn):
     if tree is None:
         return
     inorder_traversal(tree.left, fn)
-    fn(tree.v)
+    fn(tree.key)
     inorder_traversal(tree.right, fn)
 
 

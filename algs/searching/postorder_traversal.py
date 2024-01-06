@@ -7,7 +7,7 @@ def postorder_traversal(tree: TreeNode, fn):
         return
     postorder_traversal(tree.left, fn)
     postorder_traversal(tree.right, fn)
-    fn(tree.v)
+    fn(tree.key)
 
 
 if __name__ == '__main__':

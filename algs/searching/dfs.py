@@ -6,7 +6,7 @@ def dfs(node: TreeNode, fn):
     queue = [node]
     while queue:
         n = queue.pop()  # hint: compare with bfs just one line difference
-        fn(n.v)
+        fn(n.key)
         if n.right is not None:
             queue.append(n.right)
         if n.left is not None:

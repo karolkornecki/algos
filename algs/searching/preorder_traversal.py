@@ -5,7 +5,7 @@ from shared.util import array_to_tree
 def preorder_traversal(tree: TreeNode, fn):
     if tree is None:
         return
-    fn(tree.v)
+    fn(tree.key)
     preorder_traversal(tree.left, fn)
     preorder_traversal(tree.right, fn)
 
