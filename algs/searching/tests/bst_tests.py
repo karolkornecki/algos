@@ -109,6 +109,29 @@ class BstTestCase(unittest.TestCase):
         bst.put('1', '1')
         self.assertEqual(4, bst.height())
 
+    def test_bst_rank(self):
+        # given
+        bst = BST()
+        # when
+        bst.put(4, '4')
+        bst.put(6, '6')
+        bst.put(1, '1')
+        bst.put(8, '8')
+        bst.put(5, '5')
+        bst.put(2, '2')
+        # then
+        self.assertEqual(0, bst.rank(-100))
+        self.assertEqual(0, bst.rank(1))
+        self.assertEqual(1, bst.rank(2))
+        self.assertEqual(2, bst.rank(3))  # non-existing key
+        self.assertEqual(2, bst.rank(4))
+        self.assertEqual(3, bst.rank(5))
+        self.assertEqual(4, bst.rank(6))
+        self.assertEqual(5, bst.rank(7))  # non-existing key
+        self.assertEqual(5, bst.rank(8))
+        self.assertEqual(6, bst.rank(9))
+        self.assertEqual(6, bst.rank(100))
+
 
 if __name__ == '__main__':
     unittest.main()

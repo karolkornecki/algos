@@ -107,6 +107,24 @@ class BST:
         node.size = 1 + self._size(node.left) + self._size(node.right)
         return node
 
+    def rank(self, key):
+        """
+        Returns number of nodes strictly less than the key
+        """
+        if key is None:
+            raise Exception('key is None')
+        return self._rank(key, self.root)
+
+    def _rank(self, key, node):
+        if node is None:
+            return 0
+        if key < node.key:
+            return self._rank(key, node.left)
+        elif key > node.key:
+            return 1 + self._size(node.left) + self._rank(key, node.right)
+        else:
+            return self._size(node.left)
+
     def height(self):
         return self._height(self.root)
 
