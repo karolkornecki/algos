@@ -1,6 +1,3 @@
-from shared.tree_node import TreeNode
-
-
 class BST:
     """
     Symbol table implementation as binary search tree
@@ -8,6 +5,17 @@ class BST:
 
     def __init__(self):
         self.root = None
+
+    def size(self):
+        return self._size(self.root)
+
+    def _size(self, node):
+        if node is None:
+            return 0
+        return node.size
+
+    def is_empty(self):
+        return self._size(self.root) == 0
 
     def get(self, key):
         if key is None:
@@ -39,7 +47,7 @@ class BST:
 
     def _put(self, node, key, value):
         if node is None:
-            return TreeNode(key, value, 1)
+            return BST.TreeNode(key, value, 1)
         if key < node.key:
             node.left = self._put(node.left, key, value)
         elif key > node.key:
@@ -48,17 +56,6 @@ class BST:
             node.value = value
         node.size = 1 + self._size(node.left) + self._size(node.right)
         return node
-
-    def size(self):
-        return self._size(self.root)
-
-    def _size(self, node):
-        if node is None:
-            return 0
-        return node.size
-
-    def is_empty(self):
-        return self._size(self.root) == 0
 
     def del_min(self):
         if self.is_empty():
@@ -71,16 +68,6 @@ class BST:
         node.left = self._del_min(node.left)
         node.size = self._size(node.left) + self._size(node.right) + 1
         return node
-
-    def min(self):
-        if self.is_empty():
-            raise Exception('tree is empty')
-        return self._min(self.root).key
-
-    def _min(self, node):
-        if node.left is None:
-            return node
-        return self._min(node.left)
 
     # https://mathcenter.oxford.emory.edu/site/cs171/hibbardDeletion/
     def delete(self, key):
@@ -107,6 +94,24 @@ class BST:
         node.size = 1 + self._size(node.left) + self._size(node.right)
         return node
 
+    def height(self):
+        return self._height(self.root)
+
+    def _height(self, node):
+        if node is None:
+            return 0
+        return 1 + max(self._height(node.left), self._height(node.right))
+
+    def min(self):
+        if self.is_empty():
+            raise Exception('tree is empty')
+        return self._min(self.root).key
+
+    def _min(self, node):
+        if node.left is None:
+            return node
+        return self._min(node.left)
+
     def rank(self, key):
         """
         Returns number of nodes strictly less than the key
@@ -125,14 +130,6 @@ class BST:
         else:
             return self._size(node.left)
 
-    def height(self):
-        return self._height(self.root)
-
-    def _height(self, node):
-        if node is None:
-            return 0
-        return 1 + max(self._height(node.left), self._height(node.right))
-
     def is_bst(self):
         return self._is_bst(self.root, None, None)
 
@@ -142,3 +139,11 @@ class BST:
         if (lo is not None and node.key <= lo) or (hi is not None and node.key >= hi):
             return False
         return self._is_bst(node.left, lo, node.key) and self._is_bst(node.right, node.key, hi)
+
+    class TreeNode:
+        def __init__(self, key, value=None, size=1):
+            self.left = None
+            self.right = None
+            self.key = key
+            self.value = value
+            self.size = size
