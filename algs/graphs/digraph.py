@@ -30,3 +30,10 @@ class Digraph(Graph):
         if v not in self.edges:
             self.edges[v] = []
         self.edges[v].append(w)
+
+    def reverse(self):
+        r = Digraph()
+        for v in self.edges.keys():
+            for w in self.adj(v):
+                r.add_edge(w, v)
+        return r

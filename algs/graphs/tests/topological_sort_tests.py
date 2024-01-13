@@ -25,7 +25,7 @@ class TopologicalSortTestCase(unittest.TestCase):
         result = topological_sort(g)
 
         # then
-        self.assertEqual([4, 1, 2, 5, 0, 6, 3], result)
+        self.assertEqual([3, 6, 0, 5, 2, 1, 4], result)
 
 
 if __name__ == '__main__':

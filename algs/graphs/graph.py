@@ -15,8 +15,6 @@ class Graph:
         """
         pass
 
-
-
     def e(self) -> int:
         """
         Return number of edges

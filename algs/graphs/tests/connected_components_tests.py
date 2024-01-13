@@ -30,7 +30,21 @@ class ConnectedComponentsTestCase(unittest.TestCase):
 
         # then
         self.assertEqual(3, number_of_cc)
-        self.assertEqual([0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2], identifiers)
+        self.assertEqual({
+            0: 0,
+            1: 0,
+            2: 0,
+            3: 0,
+            4: 0,
+            5: 0,
+            6: 0,
+            7: 1,
+            8: 1,
+            9: 2,
+            10: 2,
+            11: 2,
+            12: 2
+        }, identifiers)
 
 
 if __name__ == '__main__':
