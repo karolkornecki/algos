@@ -1,9 +1,9 @@
 from graphs.graph import Graph
 
 
-class UndirectedGraph(Graph):
+class Digraph(Graph):
     """
-    Undirected Graph
+    Directed Graph
     """
 
     def __init__(self):
@@ -19,15 +19,14 @@ class UndirectedGraph(Graph):
         total = 0
         for key in self.edges.keys():
             total += len(self.adj(key))
-        return total // 2  # edges are in both direction
+        return total
 
     def adj(self, v) -> [int]:
+        if v not in self.edges:
+            return []
         return self.edges[v]
 
     def add_edge(self, v: int, w: int) -> None:
         if v not in self.edges:
             self.edges[v] = []
-        if w not in self.edges:
-            self.edges[w] = []
         self.edges[v].append(w)
-        self.edges[w].append(v)

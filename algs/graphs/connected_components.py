@@ -5,7 +5,7 @@ def connected_components(g: Graph):
     count = 0
     visited = set()
     component_id = [0 for _ in range(g.v())]
-    for v in range(g.v()):
+    for v in g.vertices():
         if v not in visited:
             dfs(g, v, count, component_id, visited)
             count += 1

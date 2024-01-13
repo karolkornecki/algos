@@ -9,6 +9,14 @@ class Graph:
         """
         pass
 
+    def vertices(self) -> []:
+        """
+        Return list of vertices
+        """
+        pass
+
+
+
     def e(self) -> int:
         """
         Return number of edges
