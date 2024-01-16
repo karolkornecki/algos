@@ -1,4 +1,4 @@
-# topological sort - reverse DFS postorder
+# topological sort - reverse DFS postorder - works only for DAG
 from graphs.digraph import Digraph
 
 
@@ -6,7 +6,7 @@ def topological_sort(g: Digraph):
     # g cannot have cycles
     postorder_stack = []
     visited = set()
-    for v in g.vertices():
+    for v in g.vertices:
         if v not in visited:
             dfs(g, v, postorder_stack, visited)
     return list(reversed(postorder_stack))
