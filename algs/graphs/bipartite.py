@@ -1,9 +1,9 @@
 # Is UndirectedGraph bipartite - does the graph is two-colorable ?
-from graphs.undirected_graph import UndirectedGraph
+from graphs.undirected_graph import Graph
 
 
 class Bipartite:
-    def __init__(self, g: UndirectedGraph):
+    def __init__(self, g: Graph):
         self.g = g
         self.is_bipartite = True
         self.color = dict()

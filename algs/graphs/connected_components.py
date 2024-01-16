@@ -1,4 +1,4 @@
-from graphs.graph import Graph
+from graphs.undirected_graph import Graph
 
 
 def connected_components(g: Graph):

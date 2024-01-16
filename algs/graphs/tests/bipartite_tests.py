@@ -1,14 +1,14 @@
 import unittest
 
 from graphs.bipartite import Bipartite
-from graphs.undirected_graph import UndirectedGraph
+from graphs.undirected_graph import Graph
 
 
 class BipartiteTestCase(unittest.TestCase):
 
     def test_should_be_bipartite(self):
         # given
-        g = UndirectedGraph()
+        g = Graph()
         g.add_edge(1, 10)
         g.add_edge(1, 40)
         g.add_edge(2, 30)
@@ -24,7 +24,7 @@ class BipartiteTestCase(unittest.TestCase):
 
     def test_should_not_be_bipartite(self):
         # given
-        g = UndirectedGraph()
+        g = Graph()
         g.add_edge(1, 10)
         g.add_edge(1, 40)
         g.add_edge(2, 30)

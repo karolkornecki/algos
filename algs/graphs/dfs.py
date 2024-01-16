@@ -1,5 +1,4 @@
-from graphs.graph import Graph
-from undirected_graph import UndirectedGraph
+from undirected_graph import Graph
 
 
 def dfs(g: Graph):
@@ -30,7 +29,7 @@ def dfs_iter(g: Graph):
 
 
 if __name__ == '__main__':
-    g = UndirectedGraph()
+    g = Graph()
     g.add_edge(0, 1)
     g.add_edge(0, 2)
     g.add_edge(0, 5)

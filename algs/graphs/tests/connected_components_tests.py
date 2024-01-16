@@ -1,14 +1,14 @@
 import unittest
 
 from graphs.connected_components import connected_components
-from graphs.undirected_graph import UndirectedGraph
+from graphs.undirected_graph import Graph
 
 
 class ConnectedComponentsTestCase(unittest.TestCase):
 
     def test_connected_components(self):
         # given
-        g = UndirectedGraph()
+        g = Graph()
         g.add_edge(0, 1)
         g.add_edge(0, 2)
         g.add_edge(0, 5)
