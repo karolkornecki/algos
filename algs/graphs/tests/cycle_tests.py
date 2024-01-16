@@ -1,14 +1,14 @@
 import unittest
 
 from graphs.cycle import Cycle
-from graphs.undirected_graph import UndirectedGraph
+from graphs.undirected_graph import Graph
 
 
 class CycleTestCase(unittest.TestCase):
 
     def test_should_have_cycle(self):
         # given
-        g = UndirectedGraph()
+        g = Graph()
         g.add_edge(1, 2)
         g.add_edge(1, 3)
         g.add_edge(2, 4)
@@ -18,11 +18,12 @@ class CycleTestCase(unittest.TestCase):
         # when
         cycle = Cycle(g)
         # then
-        self.assertTrue(cycle.has_cycle)
+        self.assertTrue(cycle.has_cycle())
+        self.assertEqual([6, 5, 3, 6], cycle.cycle_path)
 
     def test_should_not_have_cycle(self):
         # given
-        g = UndirectedGraph()
+        g = Graph()
         g.add_edge(1, 2)
         g.add_edge(1, 3)
         g.add_edge(2, 4)
@@ -31,7 +32,7 @@ class CycleTestCase(unittest.TestCase):
         # when
         cycle = Cycle(g)
         # then
-        self.assertFalse(cycle.has_cycle)
+        self.assertFalse(cycle.has_cycle())
 
 
 if __name__ == '__main__':
