@@ -17,6 +17,10 @@ class EdgeWeightedGraphTestCase(unittest.TestCase):
         # then
         self.assertEqual(4, g.V())
         self.assertEqual(3, g.E())
+        self.assertEqual(3, len(g.edges()))
+        self.assertTrue(Edge(1, 2, 0.1) in g.edges())
+        self.assertTrue(Edge(1, 3, 0.2) in g.edges())
+        self.assertTrue(Edge(2, 4, 0.5) in g.edges())
 
 
 if __name__ == '__main__':

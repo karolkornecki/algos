@@ -7,26 +7,26 @@ class EdgeWeightedGraph:
     """
 
     def __init__(self):
-        self.edges = dict()
+        self.edges_dict = dict()
 
     def V(self) -> int:
         """
         Return number of vertices
         """
-        return len(self.edges.keys())
+        return len(self.edges_dict.keys())
 
     def vertices(self) -> []:
         """
         Return all the vertices in the graph
         """
-        return self.edges.keys()
+        return self.edges_dict.keys()
 
     def E(self) -> int:
         """
         Return number of edges
         """
         total = 0
-        for v in self.edges.keys():
+        for v in self.edges_dict.keys():
             total += len(self.adj(v))
         return total // 2  # edges are in both direction
 
@@ -34,9 +34,9 @@ class EdgeWeightedGraph:
         """
         Return edges from vertex v
         """
-        if v not in self.edges:
+        if v not in self.edges_dict:
             return []
-        return self.edges[v]
+        return self.edges_dict[v]
 
     def add_edge(self, e: Edge) -> None:
         """
@@ -44,12 +44,19 @@ class EdgeWeightedGraph:
         """
         v = e.either()
         w = e.other(v)
-        if v not in self.edges:
-            self.edges[v] = set()
-        if w not in self.edges:
-            self.edges[w] = set()
-        self.edges[v].add(e)
-        self.edges[w].add(e)
+        if v not in self.edges_dict:
+            self.edges_dict[v] = set()
+        if w not in self.edges_dict:
+            self.edges_dict[w] = set()
+        self.edges_dict[v].add(e)
+        self.edges_dict[w].add(e)
 
     def degree(self, v) -> int:
         return len(self.adj(v))
+
+    def edges(self) -> [Edge]:
+        edges = set()  # to get unique edges
+        for v in self.edges_dict.keys():
+            for e in self.adj(v):
+                edges.add(e)
+        return edges
