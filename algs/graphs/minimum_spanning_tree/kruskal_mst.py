@@ -15,7 +15,8 @@ class KruskalMST:
             edges.append(e)
         edges.sort()
 
-        uf = WeightedQuickUnionPathCompressionUF(g.V())  # !assumption: vertex in graph are integers!
+        # !assumption: vertex in graph are ordered integers without gaps starting from 0!
+        uf = WeightedQuickUnionPathCompressionUF(g.V())
         while edges and len(self.mst) < g.V() - 1:
             edge = edges.pop(0)
             v = edge.either()
