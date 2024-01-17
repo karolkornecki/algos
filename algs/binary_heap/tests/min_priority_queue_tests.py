@@ -1,6 +1,6 @@
 import unittest
 
-from binary_heap.priority_queue import PriorityQueue
+from binary_heap.min_priority_queue import MinPriorityQueue
 
 
 class PriorityQueueTestCase(unittest.TestCase):
@@ -9,7 +9,7 @@ class PriorityQueueTestCase(unittest.TestCase):
         # given
         a1 = [7, 2, 3, 8, 6, 1, 5, 2]
         # when
-        pq = PriorityQueue()
+        pq = MinPriorityQueue()
         for e in a1:
             pq.insert(e)
 
@@ -23,7 +23,7 @@ class PriorityQueueTestCase(unittest.TestCase):
         # given
         a = [7, 2, 3, 8, 6, 1, 5, 2]
         # when
-        pq = PriorityQueue()
+        pq = MinPriorityQueue()
         for e in a:
             pq.insert(e)
         # then
@@ -33,7 +33,7 @@ class PriorityQueueTestCase(unittest.TestCase):
         # given
         a = [7, 2, 3, 8, 6, 1, 5, 2]
         # when
-        pq = PriorityQueue()
+        pq = MinPriorityQueue()
         for e in a:
             pq.insert(e)
         # then
@@ -68,7 +68,7 @@ class PriorityQueueTestCase(unittest.TestCase):
         self.assertTrue(pq.is_empty())
 
     def test_should_throw_exception_when_min_invoked_on_empty_queue(self):
-        pq = PriorityQueue()
+        pq = MinPriorityQueue()
         # when
         with self.assertRaises(Exception) as context:
             pq.min()
@@ -76,7 +76,7 @@ class PriorityQueueTestCase(unittest.TestCase):
         self.assertTrue('queue is empty' in str(context.exception))
 
     def test_should_throw_exception_when_pop_min_invoked_on_empty_queue(self):
-        pq = PriorityQueue()
+        pq = MinPriorityQueue()
         # when
         with self.assertRaises(Exception) as context:
             pq.pop_min()

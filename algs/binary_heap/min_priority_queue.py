@@ -1,4 +1,4 @@
-class PriorityQueue:
+class MinPriorityQueue:
     def __init__(self):
         self.n = 0
         self.heap = [None]
