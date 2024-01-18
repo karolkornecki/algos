@@ -3,7 +3,7 @@ import unittest
 from binary_heap.min_priority_queue import MinPriorityQueue
 
 
-class PriorityQueueTestCase(unittest.TestCase):
+class MinPriorityQueueTestCase(unittest.TestCase):
 
     def test_priority_queue_order(self):
         # given
