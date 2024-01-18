@@ -6,7 +6,6 @@ from union_find.weighted_quick_union_path_compression_uf import WeightedQuickUni
 # complexity E*logE
 class KruskalMST:
     def __init__(self, g: EdgeWeightedGraph):
-        self.g = g
         self.mst = []
         self.weight = 0
         # sort edges ascending
