@@ -46,8 +46,8 @@ class IndexMinPriorityQueue:
         if self.n == 0:
             raise Exception('pq is empty')
         min_index = self.pq[1]
-        self.n -= 1
         self._swap(1, self.n)
+        self.n -= 1
         self._sink(1)
         assert min_index == self.pq[self.n + 1]
         self.qp[min_index] = -1
@@ -96,8 +96,8 @@ class IndexMinPriorityQueue:
         if not self.contains(index):
             raise Exception('index does not exist in pq')
         i = self.qp[index]
-        self.n -= 1
         self._swap(i, self.n)
+        self.n -= 1
         self._swim(i)
         self._sink(i)
         self.keys[index] = None
