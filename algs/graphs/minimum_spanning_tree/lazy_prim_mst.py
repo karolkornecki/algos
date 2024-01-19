@@ -17,7 +17,7 @@ class LazyPrimMST:
 
     def prim(self, g: EdgeWeightedGraph, vertex):
         self.scan(g, vertex)
-        while not self.pq.is_empty():
+        while not self.pq.is_empty() or len(self.mst) != g.V() - 1:
             edge = self.pq.pop_min()  # smallest edge
             v = edge.either()
             w = edge.other(v)

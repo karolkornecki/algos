@@ -2,10 +2,12 @@ import unittest
 
 from graphs.edge import Edge
 from graphs.edge_weighted_graph import EdgeWeightedGraph
-from graphs.minimum_spanning_tree.lazy_prim_mst import LazyPrimMST
+from graphs.minimum_spanning_tree.eager_prim_mst import PrimMST
+
+EPSILON = 1.0E-12
 
 
-class LazyPrimMSTTestCase(unittest.TestCase):
+class EagerPrimMSTTestCase(unittest.TestCase):
 
     def test_should_find_mst(self):
         # given
@@ -27,9 +29,9 @@ class LazyPrimMSTTestCase(unittest.TestCase):
         g.add_edge(Edge(6, 0, 0.58))
         g.add_edge(Edge(6, 4, 0.93))
         # when
-        mst = LazyPrimMST(g)
+        mst = PrimMST(g)
         # then
-        self.assertEqual(1.81, mst.weight)
+        self.assertTrue(abs(1.81 - mst.weight()) < EPSILON)
         self.assertEqual(g.V() - 1, len(mst.edges()))  # mst always has V-1 edges
         mst_edges = mst.edges()
         self.assertTrue(Edge(0, 7, 0.16) in mst_edges)
