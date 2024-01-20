@@ -7,6 +7,7 @@ INFINITY = 2000000000
 
 # single-source the shortest path. From vertex s to every other vertex
 # works for graph with non-negative edges
+# complexity E * logV
 class DijkstraSP:
     def __init__(self, g: EdgeWeightedDigraph, s):
         # shortest distance to given vertex from s
