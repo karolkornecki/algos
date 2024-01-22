@@ -1,5 +1,5 @@
 # Is UndirectedGraph bipartite - does the graph is two-colorable ?
-from graphs.undirected_graph import Graph
+from graphs.graph import Graph
 
 
 class Bipartite:

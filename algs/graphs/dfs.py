@@ -1,4 +1,4 @@
-from undirected_graph import Graph
+from graph import Graph
 
 
 def dfs(g: Graph):

@@ -1,4 +1,4 @@
-from graphs.undirected_graph import Graph
+from graphs.graph import Graph
 
 
 # classic DFS based solution for undirected graph

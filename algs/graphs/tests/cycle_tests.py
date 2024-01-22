@@ -1,7 +1,7 @@
 import unittest
 
 from graphs.cycle import Cycle
-from graphs.undirected_graph import Graph
+from graphs.graph import Graph
 
 
 class CycleTestCase(unittest.TestCase):

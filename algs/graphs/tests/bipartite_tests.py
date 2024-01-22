@@ -1,7 +1,7 @@
 import unittest
 
 from graphs.bipartite import Bipartite
-from graphs.undirected_graph import Graph
+from graphs.graph import Graph
 
 
 class BipartiteTestCase(unittest.TestCase):
