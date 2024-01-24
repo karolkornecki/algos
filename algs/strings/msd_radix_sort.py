@@ -23,7 +23,7 @@ def sort(a, lo, hi, d, aux):
     count = [0 for _ in range(R + 2)]
     for i in range(lo, hi + 1):
         c = char_at(a[i], d)
-        count[id(c) + 2] += 1
+        count[c + 2] += 1
 
     # compute cumulates
     for r in range(R + 1):
@@ -32,8 +32,8 @@ def sort(a, lo, hi, d, aux):
     # distribute
     for i in range(lo, hi + 1):
         c = char_at(a[i], d)
-        aux[count[id(c) + 1]] = a[i]
-        count[id(c) + 1] += 1
+        aux[count[c + 1]] = a[i]
+        count[c + 1] += 1
 
     # copy back
     for i in range(lo, hi + 1):
@@ -44,14 +44,7 @@ def sort(a, lo, hi, d, aux):
         sort(a, lo + count[r], lo + count[r + 1] - 1, d + 1, aux)
 
 
-def id(s):
-    """ Return ASCII int of character or int"""
-    if isinstance(s, int):
-        return s
-    return ord(s)
-
-
 def char_at(s, d):
     if len(s) == d:
         return -1
-    return s[d]
+    return ord(s[d])
