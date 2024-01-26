@@ -10,34 +10,35 @@ class Trie:
     def insert(self, word):
         if word is None or len(word) == 0:
             return
-        self._insert(self.root.nodes, word)
+        self._insert(self.root, word, 0)
 
-    def _insert(self, nodes, word):
-        c = i(word[0])
-        if nodes[c] is None:
-            nodes[c] = Trie.Node()
-        if len(word) == 1:
-            nodes[c].word = True
+    def _insert(self, n, word, d):
+        c = i(word[d])
+        if n.next[c] is None:
+            n.next[c] = Trie.Node()
+        if d == len(word) - 1:
+            n.next[c].word = True
             return
-        self._insert(nodes[c].nodes, word[1:])
+        self._insert(n.next[c], word, d + 1)
 
     def search(self, word):
         if word is None or len(word) == 0:
             return False
-        return self._search(self.root.nodes, word)
+        return self._search(self.root, word, 0)
 
-    def _search(self, nodes, word):
-        c = i(word[0])
-        if nodes[c] is None:
+    def _search(self, n, word, d):
+        c = i(word[d])
+        if n.next[c] is None:
             return False
-        elif len(word) == 1:
-            return nodes[c].word
+        elif d == len(word) - 1:
+            return n.next[c].word
         else:
-            return self._search(nodes[c].nodes, word[1:])
+            return self._search(n.next[c], word, d + 1)
 
+    # TODO prefix and keys methods -> like in TST
     class Node:
         def __init__(self):
-            self.nodes = [None for _ in range(R)]
+            self.next = [None for _ in range(R)]
             self.word = False
 
 
