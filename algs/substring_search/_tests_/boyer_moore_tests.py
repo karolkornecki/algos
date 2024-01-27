@@ -32,6 +32,15 @@ class BoyerMooreTestCase(unittest.TestCase):
         # then
         self.assertEqual(6, i)
 
+    def test_boyer_moore_same_length(self):
+        # given
+        pattern = "hello"
+        text = "hello"
+        # when
+        i = boyer_moore(text, pattern)
+        # then
+        self.assertEqual(0, i)
+
     def test_boyer_moore__not_found(self):
         # given
         pattern = "not"
