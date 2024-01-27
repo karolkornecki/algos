@@ -37,4 +37,4 @@ def kmp(text, pattern):
     if j == m:
         return i - m  # index of pattern occurrence
     # return n
-    return -1
+    return -1  # not found

@@ -1,42 +1,42 @@
 import unittest
 
-from substring_search.knuth_morris_pratt import kmp
+from substring_search.boyer_moore import boyer_moore
 
 
-class KnuthMorrisPrattTestCase(unittest.TestCase):
+class BoyerMooreTestCase(unittest.TestCase):
 
-    def test_kmp_1(self):
+    def test_boyer_moore_1(self):
         # given
         pattern = "ababac"
         text = "aabacaababacaa"
         # when
-        i = kmp(text, pattern)
+        i = boyer_moore(text, pattern)
         # then
         self.assertEqual(6, i)
 
-    def test_kmp_2(self):
+    def test_boyer_moore_2(self):
         # given
         pattern = "hasa"
         text = "alahasacat"
         # when
-        i = kmp(text, pattern)
+        i = boyer_moore(text, pattern)
         # then
         self.assertEqual(3, i)
 
-    def test_kmp_3(self):
+    def test_boyer_moore_3(self):
         # given
         pattern = "new"
         text = "hello new world"
         # when
-        i = kmp(text, pattern)
+        i = boyer_moore(text, pattern)
         # then
         self.assertEqual(6, i)
 
-    def test_kmp__not_found(self):
+    def test_boyer_moore__not_found(self):
         # given
         pattern = "not"
         text = "alahasacat"
         # when
-        i = kmp(text, pattern)
+        i = boyer_moore(text, pattern)
         # then
         self.assertEqual(-1, i)
