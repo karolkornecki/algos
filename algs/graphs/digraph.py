@@ -54,3 +54,6 @@ class Digraph:
             for w in self.adj(v):
                 r.add_edge(w, v)
         return r
+
+    def add_vertex(self, v):
+        self.vertices.add(v)
