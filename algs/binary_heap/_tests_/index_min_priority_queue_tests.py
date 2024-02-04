@@ -206,7 +206,7 @@ class IndexMinPriorityQueueTestCase(unittest.TestCase):
         with self.assertRaises(Exception) as context:
             pq.del_min()
         # then
-        self.assertTrue('pw is empty' in str(context.exception))
+        self.assertTrue('pq is empty' in str(context.exception))
 
 
 if __name__ == '__main__':
