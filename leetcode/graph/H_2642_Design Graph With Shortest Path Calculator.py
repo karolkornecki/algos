@@ -49,16 +49,3 @@ if __name__ == '__main__':
     print(g.shortestPath(9, 3))
     g.addEdge([11, 1, 873094])
     print(g.shortestPath(3, 10))
-    # g.addEdge([0, 9, 601498])
-    # g.addEdge([12, 0, 824080])
-    # g.addEdge([12, 4, 459292])
-    # g.addEdge([6, 9, 7876])
-    # g.addEdge([11, 7, 5479])
-    # g.addEdge([11, 12, 802])
-    # print(g.shortestPath(2, 9))
-    # print(g.shortestPath(2, 6))
-
-    # c = [
-    #        [[]], [], [], [[]], [[]], [[]],
-    #        [[]], []], [], [], [[0, 11, 441770]], [3, 7], [[11, 0, 393443]], [4, 2],
-    #        [[10, 5, 338]], [[6, 1, 305]], [[5, 0, 154]]]
