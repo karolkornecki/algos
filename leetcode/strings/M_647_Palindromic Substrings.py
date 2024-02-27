@@ -1,3 +1,21 @@
+# TODO Manacher's
+
+class Solution1:
+    def countSubstrings(self, s):
+        count = 0
+        n = len(s)
+        for i in range(n):
+            count += 1
+            left = i - 1
+            right = i + 1
+            while left >= 0 and right < n:
+                if s[left] == s[right]:
+                    count += 1
+                left -= 1
+                right += 1
+        return count
+
+
 # yet better approach ~192ms run memory 25.1mb
 class Solution2:
     def countSubstrings(self, s):
@@ -68,5 +86,5 @@ class Solution4:
 
 
 if __name__ == '__main__':
-    s = Solution2()
-    print(s.countSubstrings("xaaay"))
+    s = Solution1()
+    print(s.countSubstrings("aaaaa"))
