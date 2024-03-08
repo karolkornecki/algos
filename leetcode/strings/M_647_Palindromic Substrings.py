@@ -1,5 +1,6 @@
 # TODO Manacher's
 
+
 class Solution1:
     def countSubstrings(self, s):
         count = 0
