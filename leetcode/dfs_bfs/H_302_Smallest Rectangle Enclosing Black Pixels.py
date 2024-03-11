@@ -10,16 +10,16 @@ class Solution:
     def minArea(self, image: List[List[str]], x: int, y: int) -> int:
         min_x, max_x = x, x
         min_y, max_y = y, y
-        pq = [(x, y)]
+        queue = [(x, y)]
         image[x][y] = '0'  # mark visited
-        while pq:
-            (cx, cy) = pq.pop(0)
+        while queue:
+            (cx, cy) = queue.pop(0)
             min_x = min(min_x, cx)
             max_x = max(max_x, cx)
             min_y = min(min_y, cy)
             max_y = max(max_y, cy)
             for nx, ny in neighbours(image, cx, cy):
-                pq.append((nx, ny))
+                queue.append((nx, ny))
                 image[nx][ny] = '0'
         return (max_y - min_y + 1) * (max_x - min_x + 1)
 
