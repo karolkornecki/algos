@@ -1,4 +1,4 @@
-# most popular algorithms every programmer should know
+# most popular algorithms and some algorithmic puzzles
 
 
 # Reference
