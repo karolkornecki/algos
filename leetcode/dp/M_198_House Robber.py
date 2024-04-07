@@ -1,3 +1,4 @@
+from functools import cache
 from typing import List
 
 
@@ -26,6 +27,24 @@ class Solution4:
         for i in range(2, len(nums)):
             dp[i] = max(nums[i] + dp[i - 2], dp[i - 1])
         return dp[len(nums) - 1]
+
+
+# more intuitive approach than in solution3
+class Solution3a:
+    def rob(self, nums: List[int]) -> int:
+        if len(nums) == 1:
+            return nums[0]
+
+        @cache
+        def dp(i):
+            if i >= len(nums):
+                return 0
+            return max(
+                nums[i] + dp(i + 2),
+                dp(i + 1)
+            )
+
+        return dp(0)
 
 
 # DP - top down
@@ -71,6 +90,6 @@ class Solution1:
 
 
 if __name__ == "__main__":
-    s = Solution5()
+    s = Solution3a()
     assert s.rob([1, 2, 3, 1]) == 4
     assert s.rob([2, 7, 9, 3, 1]) == 12
